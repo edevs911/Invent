@@ -1,0 +1,68 @@
+<div class="row">
+
+    <div >
+      <button  class="btn btn-primary mb-4" 
+      [routerLink]="['/employees/employee-detail']"> 
+      Add Employee
+    </button>
+    </div>
+    
+    <div class="col-md-12" >
+
+<!-- 
+      <p-table [value]="employees">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Last Name</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-employee>
+            <tr>
+                <td>{{employee.number}}</td>
+                <td>{{employee.name}}</td>
+                <td>{{employee.lastName}}</td>
+            </tr>
+        </ng-template>
+    </p-table> -->
+
+      <table class="table table-hover" >
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">id</th>
+            <th scope="col">Email</th>
+            <th scope="col">Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users; let i = index">
+            <td [routerLink]="['/employees/employee-detail', user.id ]"> <img  style="width: 50px;" class="rounded-circle" src="{{user.avatar}}" alt=""> </td>
+            <td [routerLink]="['/employees/employee-detail', user.id ]">{{ user.id}}</td>
+            <td [routerLink]="['/employees/employee-detail', user.id ]">{{ user.email}}</td>
+            <td [routerLink]="['/employees/employee-detail', user.id ]">{{ user.first_name}} </td>
+            <td [routerLink]="['/employees/employee-detail', user.id ]">{{ user.last_name}} </td>
+            <td>
+              <button class="btn btn-sm btn-danger" (click)="confirm(user.id)"> 
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+  </div>
+  <!-- 
+
+      <p-progressSpinner *ngIf="isLoading"></p-progressSpinner>
+    
+      <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle">
+        </p-confirmDialog>
+
+  -->
+    
+
